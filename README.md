@@ -1,13 +1,13 @@
 # Docker_TP2
 
-# TP Réalisé par Raphaël BEGHIN
+# TP RÃ©alisÃ© par RaphaÃ«l BEGHIN
 
 ## Part.1 Gitlab
 ### 1. Ajout d'un disque
 
-Pré-requis : Tout d'abord j'ai ajouté un disque "physique" à ma VM sur virtualbox.
+PrÃ©-requis : Tout d'abord j'ai ajoutÃ© un disque "physique" Ã  ma VM sur virtualbox.
 
-Par la suite, il faut allouer 15Gb de ce disque pour la partition data grâce au LVM.
+Par la suite, il faut allouer 15Gb de ce disque pour la partition data grÃ¢ce au LVM.
 
 ```
     $ pvcreate /dev/sdb
@@ -18,17 +18,17 @@ Par la suite, il faut allouer 15Gb de ce disque pour la partition data grâce au 
     $ mount /dev/vg01/data /data
 ```
 
-On vérfie que tout s'est bien passé 
+On vÃ©rfie que tout s'est bien passÃ© 
 
 ```
     $ lsblk /dev/sdb 
     
     NAME        MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-sdb           8:16   0  30G  0 disk
+    sdb           8:16   0  30G  0 disk
 +-vg01-data 253:2    0  15G  0 lvm  /data
 ```
 
-Pour faire en sorte que le volume reste monter au redémarrage on édite le fichier /etc/fstab on rajoute la ligne 
+Pour faire en sorte que le volume reste monter au redÃ©marrage on Ã©dite le fichier /etc/fstab on rajoute la ligne 
 
 ```
 /dev/vg01/data /data    ext4    defaults        0 0
