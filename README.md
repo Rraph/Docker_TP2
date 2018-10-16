@@ -51,3 +51,27 @@ Organizational Unit Name (eg, section) []:osef
 Common Name (eg, your name or your server's hostname) []:**tp2.gitlab**
 Email Address []:raphael.beghin@live.fr
 ```
+
+Au niveau de la configuration du firewalld, on ajoute a la conf le service https : 
+
+```
+    firewall-cmd --add-port=443/tcp --zone=public --permanent && firewall-cmd --reload
+```
+
+Voici la conf actuelle de mon firewall : 
+
+```
+public (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: enp0s3 enp0s8
+  sources:
+  services: ssh dhcpv6-client http
+  ports: 443/tcp
+  protocols:
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+```
